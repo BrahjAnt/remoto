@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -7,12 +8,14 @@ public class Main {
 		Scanner sText = new Scanner(System.in);
 		Scanner sInteger = new Scanner(System.in);
 		
-		
+	
 	System.out.println("Datos de estudiantes:");
-	generateDateStudents();
+	Estudiante listStudents = generateDateStudents();
+	listStudents.showStudent();
 		
 	}
-	public static void generateDateStudents() {
+	public static Estudiante generateDateStudents() {
+		Estudiante estudiante = new Estudiante();
 		Scanner sText = new Scanner(System.in);
 		Scanner sInteger = new Scanner(System.in);
 		System.out.println("Inserte nombre:");
@@ -27,7 +30,7 @@ public class Main {
 		String studies = sText.nextLine();
 		System.out.println("Teléfono:");
 		String numberTelephone = sText.nextLine();
-		
-		System.out.println(name+" " + lastName+" " +birthDate+ " " +dni+ " " +studies+" " + numberTelephone);
+		estudiante = new Estudiante(name,lastName,birthDate,dni,studies,numberTelephone);
+		return estudiante;
 	}
 }
